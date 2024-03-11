@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Projects{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h2>Project List</h2>
+        {% if projects|length > 0 %}
+            <div class="list-group">
+                {% for project in projects %}
+                    <a href="{{ path('project_show', {'id': project.id}) }}" class="list-group-item list-group-item-action">
+                        {{ project.name }}
+                    </a>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No projects found.</p>
+        {% endif %}
+    </div>
+{% endblock %}
